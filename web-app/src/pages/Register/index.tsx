@@ -19,7 +19,7 @@ export default function Register() {
     const [age, setAge] = useState('')
     const [bio, setBio] = useState('')
 
-    const [subject, setSubject] = useState('')
+    const [sexuality, setSexuality] = useState('')
 
     function handleCreateClass(e : FormEvent) {
         e.preventDefault();
@@ -29,7 +29,7 @@ export default function Register() {
             photo,
             age,
             bio,
-            subject
+            sexuality
         }).then(() => {
             alert("Cadastro realizado com sucesso!")
 
@@ -80,10 +80,10 @@ export default function Register() {
                 <fieldset>
                     <legend>Preferências</legend>
                     <Select name="subject" label="Sexualidade"
-                        value={subject}
+                        value={sexuality}
                         onChange={
                             (e) => {
-                                setSubject(e.target.value)
+                                setSexuality(e.target.value)
                             }
                         }
                         options={
