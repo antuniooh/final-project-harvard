@@ -19,6 +19,12 @@ export default function Register() {
     const [age, setAge] = useState('')
     const [bio, setBio] = useState('')
 
+    const [github, setGithub] = useState('')
+    const [instagram, setInstagram] = useState('')
+    const [facebook, setFacebook] = useState('')
+    const [linkedin, setLinkedin] = useState('')
+    const [spotify, setSpotify] = useState('')
+
     const [subject, setSubject] = useState('')
 
     function handleCreateClass(e : FormEvent) {
@@ -29,7 +35,11 @@ export default function Register() {
             photo,
             age,
             bio,
-            subject
+            subject,
+            github,
+            facebook,
+            instagram,
+            linkedin
         }).then(() => {
             alert("Cadastro realizado com sucesso!")
 
@@ -106,6 +116,45 @@ export default function Register() {
                                 }
                             ]
                         }/>
+                </fieldset>
+
+                <fieldset>
+                <legend>Redes Sociais</legend>
+                    <Input name="github" label="Github"
+                        value={github}
+                        onChange={
+                        (e) => {
+                            setGithub(e.target.value)
+                        }
+                    }/>
+                    <Input name="instagram" label="Instagram"
+                        value={instagram}
+                        onChange={
+                        (e) => {
+                            setInstagram(e.target.value)
+                        }
+                    }/>
+                    <Input name="facbook" label="Facebook"
+                        value={facebook}
+                        onChange={
+                        (e) => {
+                            setFacebook(e.target.value)
+                        }
+                    }/>
+                    <Input name="linkedin" label="Linkedin"
+                        value={linkedin}
+                        onChange={
+                        (e) => {
+                            setLinkedin(e.target.value)
+                        }
+                    }/>
+                    <Input name="spotify" label="Spotify"
+                        value={spotify}
+                        onChange={
+                        (e) => {
+                            setSpotify(e.target.value)
+                        }
+                    }/>
                 </fieldset>
 
             <footer>
