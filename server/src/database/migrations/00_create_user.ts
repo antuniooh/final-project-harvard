@@ -7,6 +7,7 @@ export async function up(knex: Knex) {
     table.string('photo');
     table.string('age');
     table.string('bio');
+    table.string('sexuality');
   }
   )
 }

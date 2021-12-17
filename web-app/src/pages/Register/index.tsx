@@ -27,8 +27,7 @@ export default function Register() {
     const [spotify, setSpotify] = useState('')
 
     const [location, setLocation] = useState('')
-
-    const [subject, setSubject] = useState('')
+    const [sexuality, setSexuality] = useState('')
 
     // const location = useGeoLocation();
 
@@ -40,11 +39,12 @@ export default function Register() {
             photo,
             age,
             bio,
-            subject,
+            sexuality,
             github,
             facebook,
             instagram,
             linkedin
+            
         }).then(() => {
             alert("Cadastro realizado com sucesso!")
 
@@ -109,10 +109,10 @@ export default function Register() {
                 <fieldset>
                     <legend>Preferências</legend>
                     <Select name="subject" label="Sexualidade"
-                        value={subject}
+                        value={sexuality}
                         onChange={
                             (e) => {
-                                setSubject(e.target.value)
+                                setSexuality(e.target.value)
                             }
                         }
                         options={

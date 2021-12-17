@@ -15,8 +15,7 @@ export default class UsersController {
       photo,
       age,
       bio,
-      subject,
-      cost
+      sexuality
     } = req.body;
 
     console.log(req.body)
@@ -30,6 +29,7 @@ export default class UsersController {
         photo,
         age,
         bio,
+        sexuality
       });
       console.log(insertedUsersIds)
 
@@ -51,13 +51,18 @@ export default class UsersController {
   }
 
   async index(req: Request, res: Response) {
+    
     const filters = req.query;
+    console.log(filters)
 
     const users = await db('users')
       .whereExists(function() {
         this.select('users.*')
           .from('users')
-      });
+          .where('sexuality', filters.preference)
+          .whereBetween('age', [filters.minAge, filters.maxAge])
+
+        });
 
 
     console.log(users)
