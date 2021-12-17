@@ -17,7 +17,7 @@ function Peoples() {
     const [language, setLanguage] = useState('');
     const [maxAge, setMaxAge] = useState('');
     const [minAge, setMinAge] = useState('');
-    const [distance, setDistance] = useState('');
+    const [city, setCity] = useState('');
 
     async function searchPeople(e : FormEvent) {
         e.preventDefault();
@@ -28,7 +28,7 @@ function Peoples() {
                 language,
                 minAge,
                 maxAge,
-                distance
+                city
             }
         })
 
@@ -79,20 +79,20 @@ function Peoples() {
                         options={
                             [
                                 {
-                                    value: "Homem",
-                                    label: "Homem"
+                                    value: "Java",
+                                    label: "Java"
                                 },
                                 {
-                                    value: "Mulher",
-                                    label: "Mulher"
+                                    value: "Python",
+                                    label: "Python"
                                 },
                                 {
-                                    value: "Ambos",
-                                    label: "Ambos"
+                                    value: "C++",
+                                    label: "C++"
                                 },
                                 {
-                                    value: "Outros",
-                                    label: "Outros"
+                                    value: "JavaScript",
+                                    label: "JavaScript"
                                 }
                             ]
                         }/>
@@ -113,11 +113,11 @@ function Peoples() {
                                 }/>
 
 
-        <Input name="distance" label="Distância"
-                            value={distance}
+        <Input name="city" label="Cidade"
+                            value={city}
                             onChange={
                                 (e) => {
-                                    setDistance(e.target.value)
+                                    setCity(e.target.value)
                                 }
                             }/>
                 <button type="submit">

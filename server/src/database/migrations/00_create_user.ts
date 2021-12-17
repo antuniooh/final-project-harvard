@@ -8,6 +8,13 @@ export async function up(knex: Knex) {
     table.string('age');
     table.string('bio');
     table.string('sexuality');
+    table.string('location');
+    table.string('github');
+    table.string('facebook');
+    table.string('instagram');
+    table.string('linkedin');
+    table.string('spotify');
+    table.string('language');
   }
   )
 }

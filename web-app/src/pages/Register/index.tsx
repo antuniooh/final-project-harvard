@@ -19,6 +19,7 @@ export default function Register() {
     const [photo, setPhoto] = useState('')
     const [age, setAge] = useState('')
     const [bio, setBio] = useState('')
+    const [language, setLanguage] = useState('')
 
     const [github, setGithub] = useState('')
     const [instagram, setInstagram] = useState('')
@@ -43,7 +44,10 @@ export default function Register() {
             github,
             facebook,
             instagram,
-            linkedin
+            linkedin,
+            location,
+            spotify,
+            language
             
         }).then(() => {
             alert("Cadastro realizado com sucesso!")
@@ -94,7 +98,7 @@ export default function Register() {
                                     setBio(e.target.value)
                                 }
                             }/>
-                        <Input name="location" label="Location"
+                        <Input name="location" label="Localização"
                             value={location}
                             onChange={
                                 (e) => {
@@ -132,6 +136,37 @@ export default function Register() {
                                 {
                                     value: "Outros",
                                     label: "Outros"
+                                }
+                            ]
+                        }/>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Programação</legend>
+                    <Select name="language" label="Linguagem"
+                        value={language}
+                        onChange={
+                            (e) => {
+                                setLanguage(e.target.value)
+                            }
+                        }
+                        options={
+                            [
+                                {
+                                    value: "Java",
+                                    label: "Java"
+                                },
+                                {
+                                    value: "Python",
+                                    label: "Python"
+                                },
+                                {
+                                    value: "C++",
+                                    label: "C++"
+                                },
+                                {
+                                    value: "JavaScript",
+                                    label: "JavaScript"
                                 }
                             ]
                         }/>
