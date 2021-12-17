@@ -1,4 +1,4 @@
-import React, {FormEvent, useState} from "react";
+import React, {useEffect, FormEvent, useState} from "react";
 import {useHistory} from "react-router-dom";
 
 import PageHeader from "../../components/PageHeader";
@@ -10,6 +10,7 @@ import warningIcon from "../../assets/images/icons/warning.svg";
 import api from "../../services/api";
 
 import "./styles.css";
+// import useGeoLocation from "../../services/GeoLocation";
 
 export default function Register() {
     const history = useHistory();
@@ -25,7 +26,11 @@ export default function Register() {
     const [linkedin, setLinkedin] = useState('')
     const [spotify, setSpotify] = useState('')
 
+    const [location, setLocation] = useState('')
+
     const [subject, setSubject] = useState('')
+
+    // const location = useGeoLocation();
 
     function handleCreateClass(e : FormEvent) {
         e.preventDefault();
@@ -47,6 +52,10 @@ export default function Register() {
         }).catch(() => {
             alert("Erro ao realizar cadastro :(")
         })
+    }
+
+    function getLatLong(){
+
     }
 
     return (
@@ -85,6 +94,16 @@ export default function Register() {
                                     setBio(e.target.value)
                                 }
                             }/>
+                        <Input name="location" label="Location"
+                            value={location}
+                            onChange={
+                                (e) => {
+                                    setLocation(e.target.value)
+                                }
+                            }
+                        />
+                        {/* <button onclick="" >Get My Location</button> */}
+
                     </fieldset>
 
                 <fieldset>
