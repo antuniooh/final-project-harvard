@@ -1,4 +1,4 @@
-import React, {FormEvent, useState} from "react";
+import React, {useEffect, FormEvent, useState} from "react";
 import {useHistory} from "react-router-dom";
 
 import PageHeader from "../../components/PageHeader";
@@ -10,6 +10,7 @@ import warningIcon from "../../assets/images/icons/warning.svg";
 import api from "../../services/api";
 
 import "./styles.css";
+// import useGeoLocation from "../../services/GeoLocation";
 
 export default function Register() {
     const history = useHistory();
@@ -19,7 +20,16 @@ export default function Register() {
     const [age, setAge] = useState('')
     const [bio, setBio] = useState('')
 
+    const [github, setGithub] = useState('')
+    const [instagram, setInstagram] = useState('')
+    const [facebook, setFacebook] = useState('')
+    const [linkedin, setLinkedin] = useState('')
+    const [spotify, setSpotify] = useState('')
+
+    const [location, setLocation] = useState('')
     const [sexuality, setSexuality] = useState('')
+
+    // const location = useGeoLocation();
 
     function handleCreateClass(e : FormEvent) {
         e.preventDefault();
@@ -29,7 +39,12 @@ export default function Register() {
             photo,
             age,
             bio,
-            sexuality
+            sexuality,
+            github,
+            facebook,
+            instagram,
+            linkedin
+            
         }).then(() => {
             alert("Cadastro realizado com sucesso!")
 
@@ -37,6 +52,10 @@ export default function Register() {
         }).catch(() => {
             alert("Erro ao realizar cadastro :(")
         })
+    }
+
+    function getLatLong(){
+
     }
 
     return (
@@ -75,6 +94,16 @@ export default function Register() {
                                     setBio(e.target.value)
                                 }
                             }/>
+                        <Input name="location" label="Location"
+                            value={location}
+                            onChange={
+                                (e) => {
+                                    setLocation(e.target.value)
+                                }
+                            }
+                        />
+                        {/* <button onclick="" >Get My Location</button> */}
+
                     </fieldset>
 
                 <fieldset>
@@ -106,6 +135,45 @@ export default function Register() {
                                 }
                             ]
                         }/>
+                </fieldset>
+
+                <fieldset>
+                <legend>Redes Sociais</legend>
+                    <Input name="github" label="Github"
+                        value={github}
+                        onChange={
+                        (e) => {
+                            setGithub(e.target.value)
+                        }
+                    }/>
+                    <Input name="instagram" label="Instagram"
+                        value={instagram}
+                        onChange={
+                        (e) => {
+                            setInstagram(e.target.value)
+                        }
+                    }/>
+                    <Input name="facbook" label="Facebook"
+                        value={facebook}
+                        onChange={
+                        (e) => {
+                            setFacebook(e.target.value)
+                        }
+                    }/>
+                    <Input name="linkedin" label="Linkedin"
+                        value={linkedin}
+                        onChange={
+                        (e) => {
+                            setLinkedin(e.target.value)
+                        }
+                    }/>
+                    <Input name="spotify" label="Spotify"
+                        value={spotify}
+                        onChange={
+                        (e) => {
+                            setSpotify(e.target.value)
+                        }
+                    }/>
                 </fieldset>
 
             <footer>
