@@ -24,6 +24,7 @@ export default function Register() {
     const [photo, setPhoto] = useState("")
     const [age, setAge] = useState('')
     const [bio, setBio] = useState('')
+    const [language, setLanguage] = useState('')
 
     const [github, setGithub] = useState('')
     const [instagram, setInstagram] = useState('')
@@ -32,8 +33,7 @@ export default function Register() {
     const [spotify, setSpotify] = useState('')
 
     const [location, setLocation] = useState('')
-
-    const [subject, setSubject] = useState('')
+    const [sexuality, setSexuality] = useState('')
 
     // const location = useGeoLocation();
 
@@ -45,11 +45,15 @@ export default function Register() {
             photo,
             age,
             bio,
-            subject,
+            sexuality,
             github,
             facebook,
             instagram,
-            linkedin
+            linkedin,
+            location,
+            spotify,
+            language
+            
         }).then(() => {
             alert("Cadastro realizado com sucesso!")
 
@@ -115,7 +119,8 @@ export default function Register() {
                                     setBio(e.target.value)
                                 }
                             }/>
-                        <Input name="location" label="Cidade" type="text"
+
+                        <Input name="location" label="Localização" type="text"
                             value={location}
                             onChange={
                                 (e) => {
@@ -129,10 +134,10 @@ export default function Register() {
                 <fieldset>
                     <legend>Preferências</legend>
                     <Select name="subject" label="Sexualidade"
-                        value={subject}
+                        value={sexuality}
                         onChange={
                             (e) => {
-                                setSubject(e.target.value)
+                                setSexuality(e.target.value)
                             }
                         }
                         options={
@@ -152,6 +157,37 @@ export default function Register() {
                                 {
                                     value: "Outros",
                                     label: "Outros"
+                                }
+                            ]
+                        }/>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Programação</legend>
+                    <Select name="language" label="Linguagem"
+                        value={language}
+                        onChange={
+                            (e) => {
+                                setLanguage(e.target.value)
+                            }
+                        }
+                        options={
+                            [
+                                {
+                                    value: "Java",
+                                    label: "Java"
+                                },
+                                {
+                                    value: "Python",
+                                    label: "Python"
+                                },
+                                {
+                                    value: "C++",
+                                    label: "C++"
+                                },
+                                {
+                                    value: "JavaScript",
+                                    label: "JavaScript"
                                 }
                             ]
                         }/>

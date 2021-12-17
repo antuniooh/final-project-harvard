@@ -10,13 +10,20 @@ interface ScheduleItem {
 
 export default class UsersController {
   async create(req: Request, res: Response)  {
+    console.log(req.body)
     const {
       name,
       photo,
       age,
       bio,
-      subject,
-      cost
+      sexuality,
+      location,
+      github,
+      facebook,
+      instagram,
+      linkedin,
+      spotify,
+      language
     } = req.body;
 
     console.log(req.body)
@@ -30,13 +37,18 @@ export default class UsersController {
         photo,
         age,
         bio,
+        sexuality,
+        location,
+        github,
+        facebook,
+        instagram,
+        linkedin,
+        spotify,
+        language
       });
-      console.log(insertedUsersIds)
-
       const user_id = insertedUsersIds[0];
 
       await trx.commit();
-
 
       return res.status(201).send();
     } catch (err) {
@@ -51,14 +63,49 @@ export default class UsersController {
   }
 
   async index(req: Request, res: Response) {
+    
     const filters = req.query;
 
-    const users = await db('users')
-      .whereExists(function() {
-        this.select('users.*')
-          .from('users')
-      });
+    var users;
+    var isGetAll = false; 
+    console.log(filters.preference)
 
+    if (filters.preference == undefined){
+        isGetAll = true
+    }
+
+    if (!isGetAll){
+
+      // validate
+      filters.preference = filters.preference == "Ambos"? "%e%": filters.preference
+      filters.preference = filters.preference == ""? "%%": filters.preference
+      filters.language = filters.language == ""? "%%": filters.language
+      filters.city = filters.city == ""? "%%": "%" + filters.city + "%"
+
+      filters.minAge = filters.minAge == ""? '0' : filters.minAge
+      filters.maxAge = filters.maxAge == ""? '90' : filters.maxAge
+
+
+      console.log(filters)
+
+        users = await db('users')
+          .whereExists(function() {
+            this.select('users.*')
+              .from('users')
+              .andWhere('sexuality', 'like', filters.preference)
+              .andWhere('language', 'like', filters.language)
+              .andWhere('location', 'like', filters.city)
+              .andWhere('age', '>', filters.minAge)
+              .andWhere('age', '<', filters.maxAge)
+
+            });
+    } else{
+      users = await db('users')
+          .whereExists(function() {
+            this.select('users.*')
+              .from('users')
+          });
+    }
 
     console.log(users)
     return res.json(users);
