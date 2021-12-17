@@ -19,12 +19,12 @@
 </p>
 
 <p align="center">
-  <img alt="Python" src="https://img.shields.io/badge/Python-blue?style=for-the-badge&logo=python&logoColor=white"/>
-  <img alt="Flask" src="https://img.shields.io/badge/Flask-green?style=for-the-badge&logo=flask&logoColor=white"/>
-  <img alt="SQL" src="https://img.shields.io/badge/SQL-gray?style=for-the-badge&logo=sql&logoColor=white"/>
-  <img alt="HTML" src="https://img.shields.io/badge/HTML-orange?style=for-the-badge&logo=html5&logoColor=white"/>
+  <img alt="JavaScript" src="https://img.shields.io/badge/JavaScript-yellow?style=for-the-badge&logo=javascript&logoColor=white"/>
+  <img alt="TypeScript" src="https://img.shields.io/badge/Typescript-blue?style=for-the-badge&logo=typescript&logoColor=white"/>
+  <img alt="Node" src="https://img.shields.io/badge/Node-green?style=for-the-badge&logo=node&logoColor=white"/>
   <img alt="CSS" src="https://img.shields.io/badge/CSS-darkblue?style=for-the-badge&logo=css3&logoColor=white"/>
 </p>
+
 
 
 <!-- TABLE OF CONTENTS -->
