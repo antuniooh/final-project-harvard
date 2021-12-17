@@ -10,13 +10,18 @@ import warningIcon from "../../assets/images/icons/warning.svg";
 import api from "../../services/api";
 
 import "./styles.css";
+
+import imageCompression from 'browser-image-compression';
+import Resizer from 'react-image-file-resizer';
+
+
 // import useGeoLocation from "../../services/GeoLocation";
 
 export default function Register() {
     const history = useHistory();
 
-    const [name, setName] = useState('')
-    const [photo, setPhoto] = useState('')
+    const [name, setName] = useState("")
+    const [photo, setPhoto] = useState("")
     const [age, setAge] = useState('')
     const [bio, setBio] = useState('')
     const [language, setLanguage] = useState('')
@@ -58,9 +63,26 @@ export default function Register() {
         })
     }
 
-    function getLatLong(){
-
+    async function ReziseToBase64(event) {
+        return Resizer.imageFileResizer(
+            event.target.files[0],
+            300,
+            300,
+            'JPEG',
+            100,
+            0,
+            uri => {
+                console.log(uri)
+            },
+            'base64'
+        );
     }
+
+    const handleFileUpload = async (e) => {
+        const base64 = ReziseToBase64(e);
+        setPhoto(String(base64));
+    }
+
 
     return (
         <div className="container" id="page-teacher-form">
@@ -70,21 +92,20 @@ export default function Register() {
                 <form onSubmit={handleCreateClass}>
                     <fieldset>
                         <legend>Seus Dados</legend>
-                        <Input name="name" label="Nome Completo"
+                        <Input name="name" label="Nome Completo" type="text"
                             value={name}
                             onChange={
                                 (e) => {
                                     setName(e.target.value)
                                 }
                             }/>
-                        <Input name="photo" label="Foto"
-                            value={photo}
+                        <Input name="photo" label="Foto" type="file"
                             onChange={
                                 (e) => {
-                                    setPhoto(e.target.value)
+                                    handleFileUpload(e)
                                 }
                             }/>
-                        <Input name="age" label="Idade"
+                        <Input name="age" label="Idade" type="text"
                             value={age}
                             onChange={
                                 (e) => {
@@ -98,7 +119,8 @@ export default function Register() {
                                     setBio(e.target.value)
                                 }
                             }/>
-                        <Input name="location" label="Localização"
+
+                        <Input name="location" label="Localização" type="text"
                             value={location}
                             onChange={
                                 (e) => {
@@ -106,7 +128,6 @@ export default function Register() {
                                 }
                             }
                         />
-                        {/* <button onclick="" >Get My Location</button> */}
 
                     </fieldset>
 
@@ -174,35 +195,35 @@ export default function Register() {
 
                 <fieldset>
                 <legend>Redes Sociais</legend>
-                    <Input name="github" label="Github"
+                    <Input name="github" label="Github" type="text"
                         value={github}
                         onChange={
                         (e) => {
                             setGithub(e.target.value)
                         }
                     }/>
-                    <Input name="instagram" label="Instagram"
+                    <Input name="instagram" label="Instagram" type="text"
                         value={instagram}
                         onChange={
                         (e) => {
                             setInstagram(e.target.value)
                         }
                     }/>
-                    <Input name="facbook" label="Facebook"
+                    <Input name="facbook" label="Facebook" type="text"
                         value={facebook}
                         onChange={
                         (e) => {
                             setFacebook(e.target.value)
                         }
                     }/>
-                    <Input name="linkedin" label="Linkedin"
+                    <Input name="linkedin" label="Linkedin" type="text"
                         value={linkedin}
                         onChange={
                         (e) => {
                             setLinkedin(e.target.value)
                         }
                     }/>
-                    <Input name="spotify" label="Spotify"
+                    <Input name="spotify" label="Spotify" type="text"
                         value={spotify}
                         onChange={
                         (e) => {
