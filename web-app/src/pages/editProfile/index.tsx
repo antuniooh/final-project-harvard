@@ -13,10 +13,7 @@ import "./styles.css";
 
 import Resizer from 'react-image-file-resizer';
 
-
-// import useGeoLocation from "../../services/GeoLocation";
-
-export default function Register() {
+export default function EditProfile() {
     const history = useHistory();
 
     const [username, setUsername] = useState("")
@@ -36,12 +33,32 @@ export default function Register() {
     const [location, setLocation] = useState('')
     const [sexuality, setSexuality] = useState('')
 
-    // const location = useGeoLocation();
+    useEffect(() => {
+        api.get("loggedUser").then((res) => {
+            const user = res.data;
+            setUsername(user.username);
+            setPassword(user.password)
+            setName(user.name)
+            setPhoto(user.photo)
+            setAge(user.age)
+            setBio(user.bio)
+            setLanguage(user.language)
+            setGithub(user.github)
+            setInstagram(user.instagram)
+            setFacebook(user.facebook)
+            setLinkedin(user.linkedin)
+            setSpotify(user.spotify)
+            setLocation(user.location)
+            setSexuality(user.sexuality)
+        }).catch(() =>{
+            window.localStorage.removeItem("token");
+        })
+    } , [])
 
     function handleCreateClass(e : FormEvent) {
         e.preventDefault();
 
-        api.post('users', {
+        api.put('users', {
             username,
             password,
             name,
@@ -58,11 +75,11 @@ export default function Register() {
             language
 
         }).then(() => {
-            alert("Cadastro realizado com sucesso!")
+            alert("Atualização realizado com sucesso!")
 
-            history.push('/login')
+            history.push('/peoples')
         }).catch(() => {
-            alert("Erro ao realizar cadastro :(")
+            alert("Erro ao atualizar cadastro :(")
         })
     }
 
@@ -83,7 +100,7 @@ export default function Register() {
 
     return (
         <div className="container" id="page-teacher-form">
-            <PageHeader title="Parece que você quer encontrar o amor da sua vida" link="/login" description="O primeiro passo é preencher esse formulario de inscrição."/>
+            <PageHeader title="Editar Perfil" link="/" description="Altere as suas informações neste formulario."/>
 
             <main>
                 <form onSubmit={handleCreateClass}>
@@ -116,6 +133,7 @@ export default function Register() {
                                     handleFileUpload(e)
                                 }
                             }/>
+                        <img src={photo} />
                         <Input name="age" label="Idade" type="number"
                             value={age}
                             onChange={
@@ -143,7 +161,7 @@ export default function Register() {
                     </fieldset>
 
                 <fieldset>
-                    <legend>Como você se identifica?</legend>
+                    <legend>Preferências</legend>
                     <Select name="subject" label="Sexualidade"
                         value={sexuality}
                         onChange={
@@ -251,7 +269,7 @@ export default function Register() {
                     <br/>
                     Preencha todos os dados
                 </p>
-                <button type="submit">Salvar cadastro</button>
+                <button type="submit">Atualizar cadastro</button>
             </footer>
         </form>
     </main>

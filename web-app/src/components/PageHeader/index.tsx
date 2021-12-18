@@ -9,13 +9,14 @@ import './styles.css';
 interface PageHeaderProps {
   title: string;
   description?: string; //opcional
+  link: string; //opcional
 }
 
 const PageHeader: React.FC<PageHeaderProps> = props => {
   return (
     <header className="page-header">
       <div className="top-bar-container">
-        <Link to="/Sonetos">
+        <Link to={props.link}>
           <img src={backIcon} alt="Voltar" />
         </Link>
         <img src={logoImg} alt="Sonetos" />
@@ -23,7 +24,7 @@ const PageHeader: React.FC<PageHeaderProps> = props => {
 
       <div className="header-content">
         <strong>{props.title}</strong>
-        
+
       { props.description && <p>{props.description}</p>}
 
         {props.children}

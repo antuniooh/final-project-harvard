@@ -1,4 +1,4 @@
-#page-landing{
+#page-login{
     width: 100vw;
     height: 150vh;
 
@@ -7,7 +7,7 @@
     align-items: center;
 
     color: var(--color-text-in-primary);
-    background-color: var(--color-primary);
+    background-color: var(--color-primary-darker);
 }
 
 .logo-container img{
@@ -16,11 +16,6 @@
 
 .hero-image {
     width: 100%;
-}
-
-.logo-container{
-    text-align: center;
-    margin-bottom: 3.2rem;
 }
 
 .logo-container h2{
@@ -33,6 +28,7 @@
 
 .buttons-container{
     display: flex;
+    align-items: center;
     justify-content: center;
     margin:3.2rem 0;
 }
@@ -51,31 +47,45 @@
     transition: background-color 0.2s;
 }
 
-.buttons-container a:first-child{
+.buttons-container button{
+    width: 30rem;
+    height: 10.4rem;
+    border-radius: 0.8rem;
+    margin-right: 1.6rem;
+    font: 700 2.0rem Archivo;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: var(--color-button-text);
+    transition: background-color 0.2s;
+}
+
+.buttons-container button:first-child{
     margin-right: 1.6rem;
 }
 
-.buttons-container a img{
+.buttons-container button img{
     width: 4rem;
 }
 
-.buttons-container a.peoples{
+.buttons-container button{
     background-color: var(--color-primary-lighter);
 }
 
-.buttons-container a.edit{
+.buttons-container a.register{
     background-color: var(--color-secundary);
 }
 
-.buttons-container a.peoples:hover{
+.buttons-container button.peoples:hover{
     background-color: var(--color-primary-ligh);
 }
 
-.buttons-container a.edit:hover{
+.buttons-container a.register:hover{
     background-color: var(--color-secundary-dark);
 }
 
-.buttons-container a img{
+.buttons-container button img{
     margin-right: 2.4rem;
 }
 
@@ -91,28 +101,15 @@
     margin-left:0.8rem;
 }
 
-.logout-button {
-    border: 0;
-    background-color: var(--color-secundary-dark);
-    color: white;
-    font: 700 1.6rem Archivo;
-    cursor: pointer;
-    transition: color 0.2s;
-    width: 15rem;
-    height: 10.4rem;
-    border-radius: 0.8rem;
-    margin-right: 1.6rem;
-}
-
 @media (min-width: 1100px){
-    #page-landing-content{
+    #page-login-content{
         max-width: 1100px;
 
         display: grid;
         grid-template-rows: 350px 1fr ;
         grid-template-columns: 2fr 1fr 1fr ;
-        grid-template-areas:
-            "logo hero hero"
+        grid-template-areas: 
+            "logo hero hero" 
             "buttons button total";
     }
 

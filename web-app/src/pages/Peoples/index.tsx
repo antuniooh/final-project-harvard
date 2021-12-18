@@ -37,7 +37,7 @@ function Peoples() {
 
     return (
         <div id="page-teacher-list" className="container">
-            <PageHeader title="O amor da sua vida está por aqui">
+            <PageHeader title="O amor da sua vida está por aqui" link="/">
                 <form id="search-people"
                     onSubmit={searchPeople}>
 
@@ -61,6 +61,10 @@ function Peoples() {
                                 {
                                     value: "Ambos",
                                     label: "Ambos"
+                                },
+                                {
+                                    value: "Não binário",
+                                    label: "Não binário"
                                 },
                                 {
                                     value: "Outros",
@@ -97,14 +101,14 @@ function Peoples() {
                             ]
                         }/>
 
-                <Input name="minAge" label="Idade Min."
+                <Input name="minAge" label="Idade Min." type="text"
                                             value={minAge}
                                             onChange={
                                                 (e) => {
                                                     setMinAge(e.target.value)
                                                 }
                                             }/>
-                    <Input name="maxAge" label="Idade Máx."
+                    <Input name="maxAge" label="Idade Máx." type="text"
                                 value={maxAge}
                                 onChange={
                                     (e) => {
@@ -113,7 +117,7 @@ function Peoples() {
                                 }/>
 
 
-        <Input name="city" label="Cidade"
+        <Input name="city" label="Cidade" type="text"
                             value={city}
                             onChange={
                                 (e) => {

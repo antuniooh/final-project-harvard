@@ -20,6 +20,11 @@ function Landing() {
         })
     }, [])
 
+    function logout(){
+        window.localStorage.removeItem("token");
+        window.location.href = window.location.href
+    }
+
     return (
         <div id="page-landing">
             <div id="page-landing-content" className="container">
@@ -41,10 +46,10 @@ function Landing() {
                             alt="People"/>
                         Conhecer Pessoas
                     </Link>
-                    <Link to="/register" className="register">
+                    <Link to="/edit" className="edit">
                         <img src={registerIcon}
-                            alt="Register"/>
-                        Quero me registrar
+                            alt="Edit"/>
+                        Editar perfil
                     </Link>
                 </div>
 
@@ -52,7 +57,9 @@ function Landing() {
                     Total de {totalConnections} pessoas cadastradas
                     <img src={purpleHeartIcon}
                         alt="Coração roxo"/>
+                        <button className="logout-button" onClick={logout}>Sair</button>
                 </span>
+                
             </div>
 
         </div>
