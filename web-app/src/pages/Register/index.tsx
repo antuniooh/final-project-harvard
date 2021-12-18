@@ -60,7 +60,7 @@ export default function Register() {
         }).then(() => {
             alert("Cadastro realizado com sucesso!")
 
-            history.push('/')
+            history.push('/login')
         }).catch(() => {
             alert("Erro ao realizar cadastro :(")
         })

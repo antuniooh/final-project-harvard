@@ -1,8 +1,11 @@
-import { Request, Response } from 'express';
+import { NextFunction, Request, Response } from 'express';
 import jwt from "jsonwebtoken";
 import db from '../database/connection';
 
+const secret = "w{ye4bA$,xRK)FKb6'4C5XFvZus3Ze3R(\e-xcre%MU]36WB`e";
+
 export default class UsersController {
+
   async create(req: Request, res: Response)  {
     console.log(req.body)
     const {
@@ -60,9 +63,20 @@ export default class UsersController {
 
   }
 
-  async login(req: Request, res: Response) {
+  async loggedUser(req: Request, res: Response) {
+    let token = req.headers.authorization!;
 
-    const secret = "w{ye4bA$,xRK)FKb6'4C5XFvZus3Ze3R(\e-xcre%MU]36WB`e";
+    if (token.startsWith('Bearer ')) {
+      // Remove Bearer from string
+      token = token.slice(7, token.length);
+    }
+
+    jwt.verify(token!, secret, (err: any, decoded: any) =>
+      res.json({username: decoded.username})
+    )
+  }
+
+  async login(req: Request, res: Response) {
 
     const {username, password} = req.body;
     const users = await db('users')
@@ -84,7 +98,6 @@ export default class UsersController {
   }
 
   async index(req: Request, res: Response) {
-
     const filters = req.query;
 
     var users;
@@ -129,8 +142,28 @@ export default class UsersController {
     }
 
     console.log(users)
+    console.log(req.headers.authorization);
+
     return res.json(users);
 
+  }
+
+  verifyJWT = (req: Request, res: Response, next: NextFunction) => {
+    let token = req.headers.authorization;
+    if (!token) return res.status(401).json({ auth: false, message: 'No token provided.' });
+
+    if (token.startsWith('Bearer ')) {
+      // Remove Bearer from string
+      token = token.slice(7, token.length);
+    }
+
+
+    jwt.verify(token, secret, (err: any, decoded: any) => {
+      console.log(err);
+      if (err) return res.status(500).json({ auth: false, message: 'Failed to authenticate token.' });
+
+      next();
+    });
   }
 
 }
