@@ -54,7 +54,6 @@ export default function EditProfile() {
     } , [])
 
     function handleCreateClass(e : FormEvent) {
-        console.log("aqui")
         e.preventDefault();
 
         api.put('users', {
@@ -100,7 +99,7 @@ export default function EditProfile() {
 
     return (
         <div className="container" id="page-teacher-form">
-            <PageHeader title="Editar Perfil" description="Altere as suas informações neste formulario."/>
+            <PageHeader title="Editar Perfil" link="/" description="Altere as suas informações neste formulario."/>
 
             <main>
                 <form onSubmit={handleCreateClass}>

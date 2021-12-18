@@ -63,7 +63,7 @@
     background-color: var(--color-primary-lighter);
 }
 
-.buttons-container a.register{
+.buttons-container a.edit{
     background-color: var(--color-secundary);
 }
 
@@ -71,7 +71,7 @@
     background-color: var(--color-primary-ligh);
 }
 
-.buttons-container a.register:hover{
+.buttons-container a.edit:hover{
     background-color: var(--color-secundary-dark);
 }
 
@@ -98,8 +98,8 @@
         display: grid;
         grid-template-rows: 350px 1fr ;
         grid-template-columns: 2fr 1fr 1fr ;
-        grid-template-areas: 
-            "logo hero hero" 
+        grid-template-areas:
+            "logo hero hero"
             "buttons button total";
     }
 

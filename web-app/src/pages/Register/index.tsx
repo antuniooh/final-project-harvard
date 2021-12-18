@@ -83,7 +83,7 @@ export default function Register() {
 
     return (
         <div className="container" id="page-teacher-form">
-            <PageHeader title="Parece que você quer encontrar o amor da sua vida" description="O primeiro passo é preencher esse formulario de inscrição."/>
+            <PageHeader title="Parece que você quer encontrar o amor da sua vida" link="/login" description="O primeiro passo é preencher esse formulario de inscrição."/>
 
             <main>
                 <form onSubmit={handleCreateClass}>

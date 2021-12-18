@@ -57,7 +57,7 @@ function Login() {
                                     setUsername(e.target.value)
                                 }
                             }/>
-                        <Input name="password" label="Senha" type="text"
+                        <Input name="password" label="Senha" type="password"
                             value={password}
                             onChange={
                                 (e) => {

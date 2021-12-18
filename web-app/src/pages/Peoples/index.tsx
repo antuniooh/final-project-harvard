@@ -37,7 +37,7 @@ function Peoples() {
 
     return (
         <div id="page-teacher-list" className="container">
-            <PageHeader title="O amor da sua vida está por aqui">
+            <PageHeader title="O amor da sua vida está por aqui" link="/">
                 <form id="search-people"
                     onSubmit={searchPeople}>
 

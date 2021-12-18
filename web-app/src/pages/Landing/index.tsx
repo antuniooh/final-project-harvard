@@ -41,10 +41,10 @@ function Landing() {
                             alt="People"/>
                         Conhecer Pessoas
                     </Link>
-                    <Link to="/register" className="register">
+                    <Link to="/edit" className="edit">
                         <img src={registerIcon}
-                            alt="Register"/>
-                        Quero me registrar
+                            alt="Edit"/>
+                        Editar perfil
                     </Link>
                 </div>
 
