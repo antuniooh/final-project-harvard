@@ -43,9 +43,7 @@
 
 <!-- ABOUT THE PROJECT -->
 ## 💻 About The Project
-TODO
-
-![app](https://github.com/antuniooh/final-project-harvard/blob/main/images/app.gif)
+This project is an implementation of a programmers social network, you can sign up, sign in, look for others developers using filter like age, programming language that you like and you can edit you profile info.
 
 <!-- HOW TO RUN -->
 ## 🚀 How To Run
@@ -58,9 +56,8 @@ $ git clone https://github.com/antuniooh/final-project-harvard.git
 # Access the project folder in your terminal / cmd
 $ cd final-project-harvard
 
-# start flask application
-$ run flask
-
+# Run front and backend
+$ bash run.sh
 ```
 
 ## 🤖 Authors
