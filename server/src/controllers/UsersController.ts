@@ -1,17 +1,13 @@
 import { Request, Response } from 'express';
-
+import jwt from "jsonwebtoken";
 import db from '../database/connection';
-
-interface ScheduleItem {
-  week_day: number;
-  from: string;
-  to: string;
-}
 
 export default class UsersController {
   async create(req: Request, res: Response)  {
     console.log(req.body)
     const {
+      username,
+      password,
       name,
       photo,
       age,
@@ -33,6 +29,8 @@ export default class UsersController {
     try {
 
       const insertedUsersIds = await trx('users').insert({
+        username,
+        password,
         name,
         photo,
         age,
@@ -62,12 +60,35 @@ export default class UsersController {
 
   }
 
+  async login(req: Request, res: Response) {
+
+    const secret = "w{ye4bA$,xRK)FKb6'4C5XFvZus3Ze3R(\e-xcre%MU]36WB`e";
+
+    const {username, password} = req.body;
+    const users = await db('users')
+          .whereExists(function() {
+            this.select('users.*')
+              .from('users')
+              .andWhere('username', '=', username)
+              .andWhere('password', '=', password)
+          })
+    if(users.length){
+      const user = users[0];
+      const token = jwt.sign({ id: user.id, username: user.username }, secret, {
+        expiresIn: 3000000
+      });
+      return res.json({ auth: true, token: token });
+    }
+
+    res.status(401).json({message: 'Login inválido!'});
+  }
+
   async index(req: Request, res: Response) {
-    
+
     const filters = req.query;
 
     var users;
-    var isGetAll = false; 
+    var isGetAll = false;
     console.log(filters.preference)
 
     if (filters.preference == undefined){
