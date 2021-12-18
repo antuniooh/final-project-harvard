@@ -143,7 +143,7 @@ export default function Register() {
                     </fieldset>
 
                 <fieldset>
-                    <legend>Preferências</legend>
+                    <legend>Como você se identifica?</legend>
                     <Select name="subject" label="Sexualidade"
                         value={sexuality}
                         onChange={
@@ -162,8 +162,8 @@ export default function Register() {
                                     label: "Mulher"
                                 },
                                 {
-                                    value: "Ambos",
-                                    label: "Ambos"
+                                    value: "Não binário",
+                                    label: "Não binário"
                                 },
                                 {
                                     value: "Outros",

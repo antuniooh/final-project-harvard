@@ -26,6 +26,14 @@ export default class UsersController {
       language
     } = req.body;
 
+    for (let field in req.body){
+      if(username == '' || password == '' || name == '' || age == '' || sexuality == '' ){
+        return res.status(400).json({
+          error: 'Invalid fields to create a new user.'
+        });
+      }
+    }
+
     console.log(req.body)
 
     const trx = await db.transaction();
@@ -65,20 +73,35 @@ export default class UsersController {
   }
 
   async loggedUser(req: Request, res: Response) {
+
     const id = (req as any).loggedUserId;
 
       const user = await db('users').where({ id }).first();
 
-      res.json(user);
+    res.json(user);
   }
 
   async edit(req: Request, res: Response) {
-    const id = (req as any).loggedUserId;
+    let token = req.headers.authorization
+    if (token.startsWith('Bearer ')) {
+      // Remove Bearer from string
+      token = token.slice(7, token.length);
+    }
+
+    const decoded = jwt.verify(token, secret);  
+    var id = decoded.id  
 
     try {
+      console.log(id)
       await db('users').where({id}).update({id, ...req.body});
+
+      return res.status(200).send();
     } catch (error) {
       console.log(error)
+
+      return res.status(400).json({
+        error: 'Unexpected error while update new user.'
+      });
     }
 
     // await db('users').where({id}).update({
@@ -106,7 +129,7 @@ export default class UsersController {
 
     if(user){
       const token = jwt.sign({ id: user.id, username: user.username }, secret, {
-        expiresIn: 3000000
+        expiresIn: 900
       });
       return res.json({ auth: true, token: token });
     }
@@ -119,7 +142,6 @@ export default class UsersController {
 
     var users;
     var isGetAll = false;
-    console.log(filters.preference)
 
     if (filters.preference == undefined){
         isGetAll = true
@@ -128,8 +150,9 @@ export default class UsersController {
     if (!isGetAll){
 
       // validate
-      filters.preference = filters.preference == "Ambos"? "%e%": filters.preference
       filters.preference = filters.preference == ""? "%%": filters.preference
+      filters.preference = filters.preference == "Ambos"? "%m%": filters.preference
+
       filters.language = filters.language == ""? "%%": filters.language
       filters.city = filters.city == ""? "%%": "%" + filters.city + "%"
 
@@ -151,6 +174,7 @@ export default class UsersController {
 
             });
     } else{
+      console.log("Get all users")
       users = await db('users')
           .whereExists(function() {
             this.select('users.*')

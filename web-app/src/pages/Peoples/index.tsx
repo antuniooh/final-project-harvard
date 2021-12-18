@@ -63,6 +63,10 @@ function Peoples() {
                                     label: "Ambos"
                                 },
                                 {
+                                    value: "Não binário",
+                                    label: "Não binário"
+                                },
+                                {
                                     value: "Outros",
                                     label: "Outros"
                                 }

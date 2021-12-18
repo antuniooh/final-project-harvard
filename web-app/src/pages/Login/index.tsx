@@ -26,7 +26,8 @@ function Login() {
         }).then((res) => {
             alert("Login realizado com sucesso!")
             window.localStorage.setItem("token", res.data.token);
-            history.push('/')
+            history.push('/Sonetos')
+            window.location.reload(true)
         }).catch(() => {
             alert("Erro ao realizar Login :(")
         })

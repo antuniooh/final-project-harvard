@@ -50,6 +50,8 @@ export default function EditProfile() {
             setSpotify(user.spotify)
             setLocation(user.location)
             setSexuality(user.sexuality)
+        }).catch(() =>{
+            window.localStorage.removeItem("token");
         })
     } , [])
 
@@ -73,13 +75,12 @@ export default function EditProfile() {
             language
 
         }).then(() => {
-            alert("Cadastro realizado com sucesso!")
+            alert("Atualização realizado com sucesso!")
 
-            history.push('/people')
+            history.push('/peoples')
         }).catch(() => {
-            alert("Erro ao realizar cadastro :(")
+            alert("Erro ao atualizar cadastro :(")
         })
-        console.log("aqui 2")
     }
 
     function handleFileUpload(event) {
@@ -179,8 +180,8 @@ export default function EditProfile() {
                                     label: "Mulher"
                                 },
                                 {
-                                    value: "Ambos",
-                                    label: "Ambos"
+                                    value: "Não binário",
+                                    label: "Não binário"
                                 },
                                 {
                                     value: "Outros",
@@ -268,7 +269,7 @@ export default function EditProfile() {
                     <br/>
                     Preencha todos os dados
                 </p>
-                <button type="submit">Salvar cadastro</button>
+                <button type="submit">Atualizar cadastro</button>
             </footer>
         </form>
     </main>

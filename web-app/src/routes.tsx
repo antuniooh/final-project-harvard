@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {BrowserRouter , Route} from 'react-router-dom';
 import EditProfile from './pages/editProfile';
 
@@ -8,13 +8,16 @@ import Peoples from './pages/Peoples';
 import Register from './pages/Register';
 
 function Routes(){
+    var login = window.localStorage.getItem("token");
+
     return(
         <BrowserRouter>
-            <Route path="/" exact component={Landing} />
-            <Route path="/peoples" component={Peoples} />
+            <Route path="/" exact component={ login != undefined ? Landing: Login} />
+            <Route path="/Sonetos" exact component={ login != undefined ? Landing: Login} />
+            <Route path="/peoples" component={ login != undefined ? Peoples: Login}/>
             <Route path="/register" component={Register} />
-            <Route path="/login" component={Login} />
-            <Route path="/edit" component={EditProfile} />
+            <Route path="/login" component={ login != undefined ? Landing: Login}  />
+            <Route path="/edit" component={ login != undefined ? EditProfile: Login} />
 
         </BrowserRouter>
     )
