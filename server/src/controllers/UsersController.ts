@@ -1,5 +1,6 @@
 import { NextFunction, Request, Response } from 'express';
 import jwt from "jsonwebtoken";
+import Knex from 'knex';
 import db from '../database/connection';
 
 const secret = "w{ye4bA$,xRK)FKb6'4C5XFvZus3Ze3R(\e-xcre%MU]36WB`e";
@@ -73,9 +74,29 @@ export default class UsersController {
 
   async edit(req: Request, res: Response) {
     const id = (req as any).loggedUserId;
-    console.log(req.body);
 
-    await db('users').where("id", id).update(req.body);
+    try {
+      await db('users').where({id}).update({id, ...req.body});
+    } catch (error) {
+      console.log(error)
+    }
+
+    // await db('users').where({id}).update({
+    //   username: req.body["username"],
+    //   password: req.body["password"],
+    //   name: req.body["name"],
+    //   photo: req.body["photo"],
+    //   age: req.body["age"],
+    //   bio: req.body["bio"],
+    //   sexuality: req.body["sexuality"],
+    //   github: req.body["github"],
+    //   facebook: req.body["facebook"],
+    //   instagram: req.body["instagram"],
+    //   linkedin: req.body["linkedin"],
+    //   location: req.body["location"],
+    //   spotify: req.body["spotify"],
+    //   language: req.body["language"]
+    // });
   }
 
   async login(req: Request, res: Response) {

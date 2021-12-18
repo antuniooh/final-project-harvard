@@ -100,7 +100,7 @@ export default function EditProfile() {
 
     return (
         <div className="container" id="page-teacher-form">
-            <PageHeader title="Parece que você quer encontrar o amor da sua vida" description="O primeiro passo é preencher esse formulario de inscrição."/>
+            <PageHeader title="Editar Perfil" description="Altere as suas informações neste formulario."/>
 
             <main>
                 <form onSubmit={handleCreateClass}>
