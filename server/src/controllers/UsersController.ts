@@ -64,30 +64,26 @@ export default class UsersController {
   }
 
   async loggedUser(req: Request, res: Response) {
-    let token = req.headers.authorization!;
+    const id = (req as any).loggedUserId;
 
-    if (token.startsWith('Bearer ')) {
-      // Remove Bearer from string
-      token = token.slice(7, token.length);
-    }
+      const user = await db('users').where({ id }).first();
 
-    jwt.verify(token!, secret, (err: any, decoded: any) =>
-      res.json({username: decoded.username})
-    )
+      res.json(user);
+  }
+
+  async edit(req: Request, res: Response) {
+    const id = (req as any).loggedUserId;
+    console.log(req.body);
+
+    await db('users').where("id", id).update(req.body);
   }
 
   async login(req: Request, res: Response) {
 
     const {username, password} = req.body;
-    const users = await db('users')
-          .whereExists(function() {
-            this.select('users.*')
-              .from('users')
-              .andWhere('username', '=', username)
-              .andWhere('password', '=', password)
-          })
-    if(users.length){
-      const user = users[0];
+    const user = await db('users').where({ username, password }).first()
+
+    if(user){
       const token = jwt.sign({ id: user.id, username: user.username }, secret, {
         expiresIn: 3000000
       });
@@ -162,6 +158,7 @@ export default class UsersController {
       console.log(err);
       if (err) return res.status(500).json({ auth: false, message: 'Failed to authenticate token.' });
 
+      (req as any).loggedUserId = decoded.id;
       next();
     });
   }
