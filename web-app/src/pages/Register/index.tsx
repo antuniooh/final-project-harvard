@@ -11,7 +11,6 @@ import api from "../../services/api";
 
 import "./styles.css";
 
-import imageCompression from 'browser-image-compression';
 import Resizer from 'react-image-file-resizer';
 
 
@@ -20,6 +19,8 @@ import Resizer from 'react-image-file-resizer';
 export default function Register() {
     const history = useHistory();
 
+    const [username, setUsername] = useState("")
+    const [password, setPassword] = useState("")
     const [name, setName] = useState("")
     const [photo, setPhoto] = useState("")
     const [age, setAge] = useState('')
@@ -41,6 +42,8 @@ export default function Register() {
         e.preventDefault();
 
         api.post('users', {
+            username,
+            password,
             name,
             photo,
             age,
@@ -53,7 +56,7 @@ export default function Register() {
             location,
             spotify,
             language
-            
+
         }).then(() => {
             alert("Cadastro realizado com sucesso!")
 
@@ -63,26 +66,20 @@ export default function Register() {
         })
     }
 
-    async function ReziseToBase64(event) {
+    function handleFileUpload(event) {
         return Resizer.imageFileResizer(
             event.target.files[0],
-            300,
-            300,
+            100,
+            100,
             'JPEG',
             100,
             0,
             uri => {
-                console.log(uri)
+                setPhoto(String(uri));
             },
             'base64'
         );
     }
-
-    const handleFileUpload = async (e) => {
-        const base64 = ReziseToBase64(e);
-        setPhoto(String(base64));
-    }
-
 
     return (
         <div className="container" id="page-teacher-form">
@@ -92,6 +89,20 @@ export default function Register() {
                 <form onSubmit={handleCreateClass}>
                     <fieldset>
                         <legend>Seus Dados</legend>
+                        <Input name="username" label="Username" type="text"
+                            value={username}
+                            onChange={
+                                (e) => {
+                                    setUsername(e.target.value)
+                                }
+                            }/>
+                            <Input name="password" label="Password" type="password"
+                            value={password}
+                            onChange={
+                                (e) => {
+                                    setPassword(e.target.value)
+                                }
+                            }/>
                         <Input name="name" label="Nome Completo" type="text"
                             value={name}
                             onChange={
@@ -105,7 +116,7 @@ export default function Register() {
                                     handleFileUpload(e)
                                 }
                             }/>
-                        <Input name="age" label="Idade" type="text"
+                        <Input name="age" label="Idade" type="number"
                             value={age}
                             onChange={
                                 (e) => {

@@ -1,0 +1,28 @@
+The disableGPU setting is set to undefined
+Not disabling GPU
+Main~createDefaultWorkingDir - Default working dir creation already attempted
+1639795567544 main info "Booting Postman 9.1.4, linux-5.11.0-41-generic on x64"
+1639795567545 main info "EventBus~initialize - Success"
+1639795567547 main info "Proxy configuration has not been setup"
+1639795567547 main info "CloudProxyManager~init - Success"
+1639795567554 main info "UpdateHandler~init - Success"
+1639795567832 main info "RuntimeIPCAgent~started: Success"
+1639795567835 main info "LinuxAutoUpdater~Cleanup - Initial cleanup successful"
+1639795567836 main info "LeaderSelection: Initialized successfully"
+1639795568002 main info "GPU detected VID 4318 DID 5966 ACTIVE true"
+1639795568004 main info "GPU detected VID 32902 DID 22807 ACTIVE false"
+1639795568196 main info "window-manager~newSharedWindow: Shell loaded"
+(node:458688) electron: The default of contextIsolation is deprecated and will be changing from false to true in a future release of Electron.  See https://github.com/electron/electron/issues/23506 for more information
+1639795568276 main info "Bootstrap-models~bootstrap - Success"
+1639795571215 main info "Main~AppEvents - Received booted event for process shared"
+(node:458688) electron: The default of contextIsolation is deprecated and will be changing from false to true in a future release of Electron.  See https://github.com/electron/electron/issues/23506 for more information
+1639795575121 main info "UpdateHandler~app-update-events - Received event",{"name":"checkForElectronVersionUpdated","namespace":"appUpdate"}
+INTERCEPTOR CONNECTIVITY: Connecting to Interceptor Bridge
+InterceptorBridge: Trying to connect Native App IPC~Interceptor Bridge
+IPCClient ~ WindowHandler: New event is received { type: 'window-opened' }
+1639795575170 main info "Main~AppEvents - Received booted event for process requester"
+1639795585710 main info "UpdateHandler~app-update-events - Received event",{"name":"updateElectron","namespace":"appUpdate","data":{"channel":"stable","version":"9.1.4","downloadVersion":"9.5.0","appId":"1a85cad2-14b3-4b2a-bf9c-77b05f37105f","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Postman/9.1.4 Chrome/87.0.4280.88 Electron/11.1.1 Safari/537.36","platform":"LINUX","arch":"64","downloadURL":"https://dl.pstmn.io/download/version/9.5.0/linux_64","updateServerDomain":"https://dl.pstmn.io/","additionalParamsString":"installationId=1a85cad2-14b3-4b2a-bf9c-77b05f37105f&userId=15617743&syncEnabled=true&teamPlan=sync-free-3-trial&teamId=2213741","userId":"15617743"}}
+1639795585710 main info "LinuxUpdater~downloadUpdate - UpdateInfo received",{"channel":"stable","version":"9.1.4","downloadVersion":"9.5.0","appId":"1a85cad2-14b3-4b2a-bf9c-77b05f37105f","userAgent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Postman/9.1.4 Chrome/87.0.4280.88 Electron/11.1.1 Safari/537.36","platform":"LINUX","arch":"64","downloadURL":"https://dl.pstmn.io/download/version/9.5.0/linux_64","updateServerDomain":"https://dl.pstmn.io/","additionalParamsString":"installationId=1a85cad2-14b3-4b2a-bf9c-77b05f37105f&userId=15617743&syncEnabled=true&teamPlan=sync-free-3-trial&teamId=2213741","userId":"15617743"}
+1639795604362 main info "LinuxAutoUpdater~Extraction completed",{"packageName":"Postman","eID":"Postman-1639795585711","downloadURL":"https://dl.pstmn.io/download/version/9.5.0/linux_64","downloadDirectory":"/home/henrique/Documents/programs/Postman","downloadInfo":{"status":"DOWNLOAD_COMPLETED","error":null,"downloadDirectory":"/home/henrique/Documents/programs/Postman"},"extractInfo":{"status":"EXTRACTION_SUCCESSFUL","error":null,"extractDirectory":"/home/henrique/Documents/programs/Postman","standardOutput":"","standardError":""}}
+1639795604383 main info "@postman/app-updater: Update updateDownloaded","","Postman 9.5.0","","https://dl.pstmn.io/download/version/9.5.0/linux_64"
+1639795604386 main info "UpdateHandler~app-update-events - Received event",{"name":"electronAppUpdateDownloaded","namespace":"appUpdate","data":{"releaseName":"Postman 9.5.0","notes":"","date":"","URL":"https://dl.pstmn.io/download/version/9.5.0/linux_64"}}
