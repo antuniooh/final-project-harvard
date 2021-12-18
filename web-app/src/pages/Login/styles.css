@@ -1,0 +1,150 @@
+#page-login{
+    width: 100vw;
+    height: 150vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    color: var(--color-text-in-primary);
+    background-color: var(--color-primary-darker);
+}
+
+.logo-container img{
+    height: 10rem;
+}
+
+.hero-image {
+    width: 100%;
+}
+
+.logo-container h2{
+    font-weight: 500;
+    font-size: 2.4rem;
+    line-height: 4.6rem;
+    margin-bottom: 0.8rem;
+    color: var(--color-input-background);
+}
+
+.buttons-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin:3.2rem 0;
+}
+
+.buttons-container a{
+    width: 30rem;
+    height: 10.4rem;
+    border-radius: 0.8rem;
+    margin-right: 1.6rem;
+    font: 700 2.0rem Archivo;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: var(--color-button-text);
+    transition: background-color 0.2s;
+}
+
+.buttons-container button{
+    width: 30rem;
+    height: 10.4rem;
+    border-radius: 0.8rem;
+    margin-right: 1.6rem;
+    font: 700 2.0rem Archivo;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: var(--color-button-text);
+    transition: background-color 0.2s;
+}
+
+.buttons-container button:first-child{
+    margin-right: 1.6rem;
+}
+
+.buttons-container button img{
+    width: 4rem;
+}
+
+.buttons-container button{
+    background-color: var(--color-primary-lighter);
+}
+
+.buttons-container a.register{
+    background-color: var(--color-secundary);
+}
+
+.buttons-container button.peoples:hover{
+    background-color: var(--color-primary-ligh);
+}
+
+.buttons-container a.register:hover{
+    background-color: var(--color-secundary-dark);
+}
+
+.buttons-container button img{
+    margin-right: 2.4rem;
+}
+
+.total-connections{
+    font-size: 1.4rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.total-connections img{
+    margin-left:0.8rem;
+}
+
+@media (min-width: 1100px){
+    #page-login-content{
+        max-width: 1100px;
+
+        display: grid;
+        grid-template-rows: 350px 1fr ;
+        grid-template-columns: 2fr 1fr 1fr ;
+        grid-template-areas: 
+            "logo hero hero" 
+            "buttons button total";
+    }
+
+    .logo-container{
+        grid-area: logo;
+        align-self: center;
+        margin:0;
+        text-align: left;
+    }
+
+    .logo-container h2{
+        text-align: initial;
+        font-size: 3.6rem;
+    }
+
+    .logo-container img{
+        height: 100%;
+    }
+
+    .hero-image{
+        grid-area: hero;
+        justify-self: end;
+    }
+
+    .buttons-container{
+        grid-area: buttons;
+        justify-content: flex-start ;
+    }
+
+    .buttons-container a{
+        font-size: 2.4rem;
+    }
+
+    .total-connections{
+        grid-area:total;
+        justify-self: end;
+    }
+}

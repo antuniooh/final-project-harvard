@@ -11,7 +11,6 @@ import api from "../../services/api";
 
 import "./styles.css";
 
-import imageCompression from 'browser-image-compression';
 import Resizer from 'react-image-file-resizer';
 
 
@@ -63,24 +62,23 @@ export default function Register() {
         })
     }
 
-    async function ReziseToBase64(event) {
+    function ReziseToBase64(event) {
         return Resizer.imageFileResizer(
             event.target.files[0],
-            300,
-            300,
+            100,
+            100,
             'JPEG',
             100,
             0,
             uri => {
-                console.log(uri)
+                setPhoto(String(uri))
             },
             'base64'
         );
     }
 
-    const handleFileUpload = async (e) => {
-        const base64 = ReziseToBase64(e);
-        setPhoto(String(base64));
+    function handleFileUpload(e : FormEvent){
+        ReziseToBase64(e);
     }
 
 
