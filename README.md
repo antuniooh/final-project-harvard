@@ -47,23 +47,23 @@ This project is an implementation of a programmers social network, you can sign 
 
 ### Register and Login
 
-![get](https://github.com/antuniooh/final-project-harvard/blob/master/.github/login_resgister.gif)
+![Login](https://github.com/antuniooh/final-project-harvard/blob/master/.github/login_resgister.gif)
 
 ### Edit Profile
 
-![get](https://github.com/antuniooh/final-project-harvard/blob/master/.github/edit_profile.gif)
+![Edit](https://github.com/antuniooh/final-project-harvard/blob/master/.github/edit_profile.gif)
 
 ### Logout
 
-![get](https://github.com/antuniooh/final-project-harvard/blob/master/.github/logout.gif)
+![logout](https://github.com/antuniooh/final-project-harvard/blob/master/.github/logout.gif)
 
 ### Find People
 
-![get](https://github.com/antuniooh/final-project-harvard/blob/master/.github/findprofile.gif)
+![Find](https://github.com/antuniooh/final-project-harvard/blob/master/.github/findpeople.gif)
 
 ### Social media
 
-![get](https://github.com/antuniooh/final-project-harvard/blob/master/.github/social_media.gif)
+![socialmedia](https://github.com/antuniooh/final-project-harvard/blob/master/.github/social_media.gif)
 
 
 <!-- HOW TO RUN -->
