@@ -37,12 +37,18 @@
     <li>
       <a href="#-how-to-run">How To Run</a>
     </li>
+    <li>
+      <a href="#-video-demo">Video Demo</a>
+    </li>
+    <li>
+      <a href="#-authors">Authors</a>
+    </li>
   </ol>
 </details>
 
 
 <!-- ABOUT THE PROJECT -->
-## 💻 About The Project
+## 💻 About The Project - Sonetos
 This project is an implementation of a programmers social network, you can sign up, sign in, look for others developers using filter like age, programming language that you like and you can edit you profile info.
 
 ### Register and Login
@@ -89,6 +95,10 @@ $ npm start
 # Or, just run front and backend with our script
 $ bash run.sh
 ```
+
+## 🎥 Video Demo
+
+
 
 ## 🤖 Authors
 
