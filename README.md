@@ -45,6 +45,27 @@
 ## 💻 About The Project
 This project is an implementation of a programmers social network, you can sign up, sign in, look for others developers using filter like age, programming language that you like and you can edit you profile info.
 
+### Register and Login
+
+![get](https://github.com/antuniooh/final-project-harvard/blob/master/.github/login_resgister.gif)
+
+### Edit Profile
+
+![get](https://github.com/antuniooh/final-project-harvard/blob/master/.github/edit_profile.gif)
+
+### Logout
+
+![get](https://github.com/antuniooh/final-project-harvard/blob/master/.github/logout.gif)
+
+### Find People
+
+![get](https://github.com/antuniooh/final-project-harvard/blob/master/.github/findprofile.gif)
+
+### Social media
+
+![get](https://github.com/antuniooh/final-project-harvard/blob/master/.github/social_media.gif)
+
+
 <!-- HOW TO RUN -->
 ## 🚀 How To Run
 
@@ -56,7 +77,16 @@ $ git clone https://github.com/antuniooh/final-project-harvard.git
 # Access the project folder in your terminal / cmd
 $ cd final-project-harvard
 
-# Run front and backend
+# you need to create database and start the server
+$ cd server
+$ npm run db
+$ npm start
+
+#  Now, start the front-end
+$ cd web-app
+$ npm start
+
+# Or, just run front and backend with our script
 $ bash run.sh
 ```
 
