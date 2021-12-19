@@ -106,7 +106,7 @@ $ bash run.sh
 
 ## 🎥 Video Demo
 
-
+https://youtu.be/E6HtyRJIpFA
 
 ## 🤖 Authors
 
