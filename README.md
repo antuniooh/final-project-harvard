@@ -51,6 +51,14 @@
 ## 💻 About The Project - Sonetos
 This project is an implementation of a programmers social network, you can sign up, sign in, look for others developers using filter like age, programming language that you like and you can edit you profile info.
 
+Our project is called Sonnets, because we think the sonnet has a strong relationship with declarations of love and our app is a dating app.
+
+The project consists of a relationship app made for programmers. the user can register on the platform, login and logout, edit their profile and search for new people.
+
+First we made a javascript backend to expose the endpoints that access or edit the sqlite database.
+
+The front-end was made in react js and in turn it accesses these endpoints and displays or performs the changes.
+
 ### Register and Login
 
 ![Login](https://github.com/antuniooh/final-project-harvard/blob/master/.github/login_resgister.gif)
