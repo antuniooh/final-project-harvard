@@ -86,10 +86,10 @@ The front-end was made in react js and in turn it accesses these endpoints and d
 ```bash
 
 # Clone the repository
-$ git clone https://github.com/antuniooh/final-project-harvard.git
+$ git clone https://github.com/antuniooh/sonetos-project.git
 
 # Access the project folder in your terminal / cmd
-$ cd final-project-harvard
+$ cd sonetos-project
 
 # you need to create database and start the server
 $ cd server
