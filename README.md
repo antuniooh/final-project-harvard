@@ -1,19 +1,19 @@
 <p align="center">
-  <img alt="GitHub language count" src="https://img.shields.io/github/languages/count/antuniooh/final-project-harvard">
+  <img alt="GitHub language count" src="https://img.shields.io/github/languages/count/antuniooh/sonetos-project">
 
-  <img alt="GitHub repo size" src="https://img.shields.io/github/repo-size/antuniooh/final-project-harvard">
+  <img alt="GitHub repo size" src="https://img.shields.io/github/repo-size/antuniooh/sonetos-project">
   
-  <a href="https://github.com/antuniooh/final-project-harvard/commits/master">
-    <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/antuniooh/final-project-harvard">
+  <a href="https://github.com/antuniooh/sonetos-project/commits/master">
+    <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/antuniooh/sonetos-project">
   </a>
   
-   <img alt="GitHub" src="https://img.shields.io/github/license/antuniooh/final-project-harvard">
+   <img alt="GitHub" src="https://img.shields.io/github/license/antuniooh/sonetos-project">
 </p>
 
 <!-- PROJECT LOGO -->
 <br />
 <p align="center">
-  <a href="https://github.com/antuniooh/final-project-harvard">
+  <a href="https://github.com/antuniooh/sonetos-project">
     <img src="https://ripehp.files.wordpress.com/2012/06/harvard-university-logo.jpg" alt="Logo" width="550">
   </a>
 </p>
@@ -61,23 +61,23 @@ The front-end was made in react js and in turn it accesses these endpoints and d
 
 ### Register and Login
 
-![Login](https://github.com/antuniooh/final-project-harvard/blob/master/.github/login_resgister.gif)
+![Login](https://github.com/antuniooh/sonetos-project/blob/master/.github/login_resgister.gif)
 
 ### Edit Profile
 
-![Edit](https://github.com/antuniooh/final-project-harvard/blob/master/.github/edit_profile.gif)
+![Edit](https://github.com/antuniooh/sonetos-project/blob/master/.github/edit_profile.gif)
 
 ### Logout
 
-![logout](https://github.com/antuniooh/final-project-harvard/blob/master/.github/logout.gif)
+![logout](https://github.com/antuniooh/sonetos-project/blob/master/.github/logout.gif)
 
 ### Find People
 
-![Find](https://github.com/antuniooh/final-project-harvard/blob/master/.github/findpeople.gif)
+![Find](https://github.com/antuniooh/sonetos-project/blob/master/.github/findpeople.gif)
 
 ### Social media
 
-![socialmedia](https://github.com/antuniooh/final-project-harvard/blob/master/.github/social_media.gif)
+![socialmedia](https://github.com/antuniooh/sonetos-project/blob/master/.github/social_media.gif)
 
 
 <!-- HOW TO RUN -->
